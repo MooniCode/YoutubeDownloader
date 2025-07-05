@@ -1,0 +1,63 @@
+# requirements.txt
+yt-dlp>=2023.7.6
+tkinter  # Usually included with Python
+threading  # Built-in module
+json  # Built-in module
+webbrowser  # Built-in module
+subprocess  # Built-in module
+platform  # Built-in module
+shutil  # Built-in module
+
+# src/__init__.py
+"""
+YouTube Downloader - Main Package
+A GUI application for downloading YouTube videos using yt-dlp.
+"""
+
+__version__ = "2.0.0"
+__author__ = "Mooni"
+__description__ = "YouTube Downloader with GUI interface"
+
+# src/core/__init__.py
+"""
+Core functionality modules
+Contains the main business logic for the YouTube downloader.
+"""
+
+from .config import ConfigManager
+from .downloader import DownloadEngine
+from .cookies import CookieManager
+from .ffmpeg import FFmpegManager
+
+__all__ = [
+    'ConfigManager',
+    'DownloadEngine', 
+    'CookieManager',
+    'FFmpegManager'
+]
+
+# src/gui/__init__.py
+"""
+GUI modules
+Contains the user interface components.
+"""
+
+from .main_window import YouTubeDownloaderGUI
+
+__all__ = ['YouTubeDownloaderGUI']
+
+# src/utils/__init__.py
+"""
+Utility modules
+Contains helper functions and utilities.
+"""
+
+from .validators import URLValidator, PathValidator, QualityValidator
+from .platform_utils import PlatformUtils
+
+__all__ = [
+    'URLValidator',
+    'PathValidator', 
+    'QualityValidator',
+    'PlatformUtils'
+]
